@@ -140,50 +140,55 @@
             /* Add these media queries at the end of the style section */
             @media screen and (max-width: 768px) {
                 .main {
-                    width: 95%;
-                    height: 2000px;
+                    width: 90%;
+                    height: auto;
                     min-height: 600px;
-                    padding: 15px;
+                    padding: 10px;
+                    margin: 15px;
                 }
 
                 .grid {
                     grid-template-columns: 1fr;
                     max-width: 100%;
-                    gap: 15px;
+                    gap: 25px;
+                    padding: 10px;
+                    margin: 15px auto;
                 }
 
                 .item {
                     flex-direction: column;
                     align-items: center;
                     text-align: center;
+                    width: 100%;
+                    margin-bottom: 10px;
                 }
 
                 .item img {
-                    width: 180px;
-                    height: 180px;
+                    width: 150px;
+                    height: 150px;
+                    margin-bottom: 10px;
                 }
 
                 .item .text-container {
                     align-items: center;
+                    width: 100%;
+                    padding: 0 10px;
                 }
 
                 .item p {
                     text-align: center;
-                    font-size: 22px;
+                    font-size: 20px;
+                    margin: 5px 0;
                 }
 
                 .item p2 {
                     text-align: center;
-                    font-size: 18px;
-                }
-
-                .bio-text {
-                    width: 80%;
-                    max-width: 300px;
+                    font-size: 16px;
                 }
 
                 h1 {
-                    font-size: 24px;
+                    font-size: 22px;
+                    margin: 10px 0;
                 }
             }
         </style>
