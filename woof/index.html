@@ -136,6 +136,56 @@
                 border: 2px solid #666;
             }
             .bio:hover .bio-text { display: block; }
+
+            /* Add these media queries at the end of the style section */
+            @media screen and (max-width: 768px) {
+                .main {
+                    width: 95%;
+                    height: auto;
+                    min-height: 600px;
+                    padding: 15px;
+                }
+
+                .grid {
+                    grid-template-columns: 1fr;
+                    max-width: 100%;
+                    gap: 15px;
+                }
+
+                .item {
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                }
+
+                .item img {
+                    width: 180px;
+                    height: 180px;
+                }
+
+                .item .text-container {
+                    align-items: center;
+                }
+
+                .item p {
+                    text-align: center;
+                    font-size: 22px;
+                }
+
+                .item p2 {
+                    text-align: center;
+                    font-size: 18px;
+                }
+
+                .bio-text {
+                    width: 80%;
+                    max-width: 300px;
+                }
+
+                h1 {
+                    font-size: 24px;
+                }
+            }
         </style>
     </head>    
     <body>
