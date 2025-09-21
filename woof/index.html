@@ -31,13 +31,16 @@
                 height: 600px;
                 border-radius: 30px;
                 padding: 20px;
+                position: relative;
             }
 .dropbtn {
-  background-color: #04AA6D;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
+  background-color: transparent;
+  color: #666;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px dashed #999;
+  font-family: monospace;
+  cursor: pointer;
 }
 
 .dropdown {
@@ -65,23 +68,23 @@
 
 .dropdown:hover .dropdown-content {display: block;}
 
-.dropdown:hover .dropbtn {background-color: #777c77;}
+.dropdown:hover .dropbtn {
+  background-color: #f0f0f0;
+  color: #333;
+}
 </style>
-</head>
-<div class="dropdown">
-  <button class="dropbtn">Dropdown</button>
-  <div class="dropdown-content">
-    <a href="https://x.com/kamilluskaw">Twitter</a>
-    <a href="https://www.twitch.tv/kamilluskaw">Twitch</a>
-    <a href="https://www.youtube.com/@kamilluskaw">Youtube</a>
-  </div>
-</div>
-        </style>
     </head>    
     <body>
         <div class="rectangle">
             <h1>woof</h1>
+            <div class="dropdown">
+                <button class="dropbtn">You can find me in these places c: </button>
+                <div class="dropdown-content">
+                    <a href="https://x.com/kamilluskaw">Twitter</a>
+                    <a href="https://www.twitch.tv/kamilluskaw">Twitch</a>
+                    <a href="https://www.youtube.com/@kamilluskaw">Youtube</a>
+                </div>
+            </div>
         </div>
     </body>
-    
 </html>
