@@ -138,57 +138,57 @@
             .bio:hover .bio-text { display: block; }
 
             @media screen and (max-width: 768px) {
+                body {
+                    height: auto;
+                    min-height: 100vh;
+                    padding: 15px;
+                }
+
                 .main {
-                    width: 90%;
+                    width: 95%;
                     height: auto;
                     min-height: 300px;
                     padding: 15px;
-                    margin: 15px;
+                    margin: 15px auto;
+                    overflow-y: auto;
                 }
 
                 .grid {
                     grid-template-columns: 1fr;
-                    max-width: 100%;
-                    gap: 25px;
-                    padding: 10px;
-                    margin: 15px auto;
+                    width: 100%;
+                    gap: 30px;
+                    padding: 0;
+                    margin: 20px 0;
                 }
 
                 .item {
                     flex-direction: column;
                     align-items: center;
-                    text-align: center;
                     width: 100%;
-                    margin-bottom: 10px;
+                    gap: 15px;
                 }
 
                 .item img {
-                    width: 150px;
-                    height: 150px;
-                    margin-bottom: 10px;
-                    display: block;
+                    width: auto;
+                    max-width: 80%;
+                    height: auto;
+                    max-height: 150px;
+                    object-fit: contain;
                 }
 
                 .item .text-container {
                     align-items: center;
                     width: 100%;
-                    padding: 0 10px;
                 }
 
                 .item p {
                     text-align: center;
                     font-size: 20px;
-                    margin: 5px 0;
                 }
 
                 .item p2 {
                     text-align: center;
                     font-size: 16px;
-                }
-
-                h1 {
-                    font-size: 22px;
-                    margin: 10px 0;
                 }
             }
         </style>
