@@ -137,6 +137,51 @@
             }
             .bio:hover .bio-text { display: block; }
 
+            .page-container {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+            }
+
+            .page {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                transition: transform 0.5s ease;
+                display: none;
+            }
+
+            .page.active {
+                display: block;
+            }
+
+            .nav-button {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background: rgba(255, 255, 255, 0.2);
+                border: none;
+                padding: 20px 10px;
+                cursor: pointer;
+                font-family: 'Ithaca';
+                font-size: 20px;
+                border-radius: 5px;
+                transition: background 0.3s;
+            }
+
+            .nav-button:hover {
+                background: rgba(255, 255, 255, 0.4);
+            }
+
+            .nav-button.prev {
+                left: 10px;
+            }
+
+            .nav-button.next {
+                right: 10px;
+            }
+
             @media screen and (max-width: 768px) {
                 body {
                     height: auto;
@@ -195,40 +240,52 @@
     </head>    
     <body>
         <div class="main">
-            <h1>Projects and such ^v^ </h1>
-            <div class="bio">
-                <p>🐾</p>
-                <span class="bio-text">As you can see I've got quite a few things going on :p </span>
-            </div>
-            <div class="grid">
-                <a href="https://www.wattpad.com/1531691152-panel-a-semmiben" class="item">
-                    <img src="panelasemmiben.png" alt="Rövidke Novella">
-                    <div class="text-container">
-                        <p>🇭🇺 Panel a semmiben</p>
-                        <p2>Novella</p2>
+            <div class="page-container">
+                <div class="page active" id="page1">
+                    <h1>Projects and such ^v^ </h1>
+                    <div class="bio">
+                        <p>🐾</p>
+                        <span class="bio-text">As you can see I've got quite a few things going on :p </span>
                     </div>
-                </a>
-                <a href="#ComingSoon" class="item">
-                    <img src="data.gif" alt="HOI4 Mod">
-                    <div class="text-container">
-                        <p>🇬🇧 Disgraced Archangels</p>
-                        <p2>Hearts of Iron IV Mod</p2>
+                    <div class="grid">
+                        <a href="https://www.wattpad.com/1531691152-panel-a-semmiben" class="item">
+                            <img src="panelasemmiben.png" alt="Rövidke Novella">
+                            <div class="text-container">
+                                <p>🇭🇺 Panel a semmiben</p>
+                                <p2>Novella</p2>
+                            </div>
+                        </a>
+                        <a href="#ComingSoon" class="item">
+                            <img src="data.gif" alt="HOI4 Mod">
+                            <div class="text-container">
+                                <p>🇬🇧 Disgraced Archangels</p>
+                                <p2>Hearts of Iron IV Mod</p2>
+                            </div>
+                        </a>
+                        <a href="https://modrinth.com/mod/kamilkachanges" class="item">
+                            <img src="kamilkachanges.png" alt="Minecraft Mod">
+                            <div class="text-container">
+                                <p>🇬🇧 Kamilka's Changes</p>
+                                <p2>Minecraft Mod</p2>
+                            </div>
+                        </a>
+                        <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2893799577" class="item">
+                            <img src="pinkpilled.gif" alt="Wallpaper for Wallpaper Engine">
+                            <div class="text-container">
+                                <p>🇺🇳 Pink Pilled Nato</p>
+                                <p2>Wallpaper engine wallpaper</p2>
+                            </div>
+                        </a>
                     </div>
-                </a>
-                <a href="https://modrinth.com/mod/kamilkachanges" class="item">
-                    <img src="kamilkachanges.png" alt="Minecraft Mod">
-                    <div class="text-container">
-                        <p>🇬🇧 Kamilka's Changes</p>
-                        <p2>Minecraft Mod</p2>
+                </div>
+                <div class="page" id="page2">
+                    <h1>More stuff ^v^ </h1>
+                    <div class="grid">
+                        <!-- Add more content for page 2 -->
                     </div>
-                </a>
-                <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2893799577" class="item">
-                    <img src="pinkpilled.gif" alt="Wallpaper for Wallpaper Engine">
-                    <div class="text-container">
-                        <p>🇺🇳 Pink Pilled Nato</p>
-                        <p2>Wallpaper engine wallpaper</p2>
-                    </div>
-                </a>
+                </div>
+                <button class="nav-button prev" onclick="changePage(-1)">←</button>
+                <button class="nav-button next" onclick="changePage(1)">→</button>
             </div>
             <div class="menu">
                 <button class="menu-btn">You can also find me on these platforms c: </button>
@@ -239,5 +296,18 @@
                 </div>
             </div>
         </div>
+        <script>
+            let currentPage = 1;
+            const totalPages = 2;
+
+            function changePage(direction) {
+                const newPage = currentPage + direction;
+                if (newPage >= 1 && newPage <= totalPages) {
+                    document.getElementById(`page${currentPage}`).classList.remove('active');
+                    document.getElementById(`page${newPage}`).classList.add('active');
+                    currentPage = newPage;
+                }
+            }
+        </script>
     </body>
 </html>
