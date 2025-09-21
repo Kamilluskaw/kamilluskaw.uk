@@ -6,176 +6,128 @@
         <title>Milka's Website :3</title>
         <link rel="icon" type="image/x-icon" href="icon.ico">
         <style>
-        @font-face {
-            font-family: 'Ithaca';
-            src: url('ithaca.ttf') format('truetype');
-        }
-
-           body {
-            background-image: url("bg.gif");
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center center;
-            height: 100vh;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            animation: slowdown 20s steps(1) infinite;
-            font-family: 'Ithaca', sans-serif;
+            @font-face {
+                font-family: 'Ithaca';
+                src: url('ithaca.ttf') format('truetype');
             }
 
-            @keyframes slowdown {
-                100% {
-                    background-position: center center;
-                }
+            body {
+                background: url("bg.gif") center/cover no-repeat;
+                height: 100vh;
+                margin: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-family: 'Ithaca', sans-serif;
             }
 
-            .rectangle {
-                background-color: rgb(235, 221, 183);
+            .main {
+                background: rgb(235, 221, 183);
                 width: 800px;
                 height: 600px;
                 border-radius: 30px;
                 padding: 20px;
-                position: relative;
                 text-align: center;
             }
 
-            h1 {
-                margin-top: 20px;
-                margin-bottom: 5px;  /* Reduced from 20px */
+            .grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+                margin: 30px auto;
+                max-width: 700px;
+                padding: 0 20px;
             }
 
-.dropbtn {
-  background-color: transparent;
-  color: #666;
-  padding: 8px;
-  font-size: 14px;
-  border: 1px dashed #999;
-  font-family: 'Ithaca', monospace;
-  cursor: pointer;
-}
+            .item {
+                color: #000;
+                text-decoration: none;
+            }
 
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
+            .item img {
+                width: 100%;
+                height: 220px;
+                object-fit: cover;
+                border-radius: 10px;
+                border: 5px solid #fff;
+            }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
+            .menu {
+                margin-top: 20px;
+            }
 
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  font-family: 'Ithaca', sans-serif;
-}
+            .menu-btn {
+                background: transparent;
+                color: #666;
+                padding: 8px;
+                font-size: 14px;
+                border: 1px dashed #999;
+                font-family: 'Ithaca';
+                cursor: pointer;
+            }
 
-.dropdown-content a:hover {background-color: #fcfcfc;}
+            .menu-content {
+                display: none;
+                position: absolute;
+                background: #fff;
+                min-width: 160px;
+                box-shadow: 0 8px 16px #0003;
+                border-radius: 5px;
+            }
 
-.dropdown:hover .dropdown-content {display: block;}
+            .menu-content a {
+                color: #000;
+                padding: 12px;
+                display: block;
+                text-decoration: none;
+            }
 
-.dropdown:hover .dropbtn {
-  background-color: #f0f0f0;
-  color: #333;
-}
+            .menu:hover .menu-content { display: block; }
+            .menu:hover .menu-btn { background: #f0f0f0; }
 
-.preview-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);  /* Changed from 3 to 2 columns */
-            gap: 30px;  /* Increased gap for better spacing */
-            margin: 30px auto;
-            max-width: 700px;
-            padding: 0 20px;  /* Added padding */
-        }
-
-        .preview-item {
-            cursor: pointer;
-            text-decoration: none;
-            color: #000000;
-        }
-
-        .preview-item img {
-            width: 100%;
-            height: 220px;  /* Increased from 180px to 220px */
-            object-fit: cover;
-            border-radius: 10px;
-            border: 5px solid #ffffff;
-        }
-
-        .preview-item p {
-            margin-top: 8px;
-            font-size: 20px;
-        }
-
-        .tooltip {
-        position: relative;
-        display: inline-block;
-    }
-
-    .tooltip .tooltip-text {
-        visibility: hidden;
-        width: 300px;
-        background-color: rgba(255, 255, 255, 0.95);
-        color: #333;
-        text-align: center;
-        border-radius: 10px;
-        padding: 15px;
-        position: absolute;
-        z-index: 1;
-        bottom: 125%;
-        left: 50%;
-        transform: translateX(-50%);
-        border: 2px solid #666;
-        font-size: 16px;
-    }
-
-    .tooltip:hover .tooltip-text {
-        visibility: visible;
-    }
-
-    .tooltip p {
-        margin-top: 0;  /* Remove top margin from paw emoji */
-        margin-bottom: 10px;
-    }
-    </style>
+            .bio { margin: 5px 0; }
+            .bio-text {
+                display: none;
+                position: absolute;
+                background: #fff;
+                padding: 15px;
+                border-radius: 10px;
+                width: 300px;
+                left: 50%;
+                transform: translateX(-50%);
+                border: 2px solid #666;
+            }
+            .bio:hover .bio-text { display: block; }
+        </style>
     </head>    
     <body>
-        <div class="rectangle">
+        <div class="main">
             <h1>Haiiiiiii!!!!!^v^ </h1>
-            <div class="tooltip">
-            <p>🐾</p>
-            <span class="tooltip-text">Hi! My name is Kamilla, a #SoonToBeSociologist who likes to express her creativity in different forms of art :3 ❤️</span>
-        </div>
-            <div class="preview-grid">
-                <a href="https://www.wattpad.com/1531691152-panel-a-semmiben" class="preview-item">
-                    <img src="panelasemmiben.png" alt="Egy rövidke metaforikus novella">
+            <div class="bio">
+                <p>🐾</p>
+                <span class="bio-text">Hi! My name is Kamilla, a #SoonToBeSociologist who likes to express her creativity in different forms of art :3 ❤️</span>
+            </div>
+            <div class="grid">
+                <a href="https://www.wattpad.com/1531691152-panel-a-semmiben" class="item">
+                    <img src="panelasemmiben.png" alt="Novella">
                     <p>🇭🇺 Panel a semmiben | Novella</p>
                 </a>
-                <a href="#ComingSoon" class="preview-item">
-                    <img src="data.png" alt="What if France and Italy overwon the Great War?">
+                <a href="#ComingSoon" class="item">
+                    <img src="data.png" alt="HOI4 Mod">
                     <p>🇬🇧 Disgraced Archangels | Hearts of Iron IV Mod</p>
                 </a>
-                <a href="https://modrinth.com/mod/kamilkachanges" class="preview-item">
-                    <img src="kamilkachanges.png" alt="Minecraft progression overhaul mod">
+                <a href="https://modrinth.com/mod/kamilkachanges" class="item">
+                    <img src="kamilkachanges.png" alt="Minecraft Mod">
                     <p>🇬🇧 Kamilka's Changes | Minecraft Mod</p>
                 </a>
-                <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2893799577" class="preview-item">
-                    <img src="pinkpilled.gif" alt="Pinkish animated wallpaper for wallpaper engine">
+                <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2893799577" class="item">
+                    <img src="pinkpilled.gif" alt="Wallpaper">
                     <p>🇺🇳 Pink Pilled Nato | Wallpaper engine wallpaper</p>
                 </a>
             </div>
-
-            <div class="dropdown">
-                <button class="dropbtn">You can also find me on these platforms c: </button>
-                <div class="dropdown-content">
+            <div class="menu">
+                <button class="menu-btn">You can also find me on these platforms c: </button>
+                <div class="menu-content">
                     <a href="https://x.com/kamilluskaw">Twitter</a>
                     <a href="https://www.twitch.tv/kamilluskaw">Twitch</a>
                     <a href="https://www.youtube.com/@kamilluskaw">Youtube</a>
