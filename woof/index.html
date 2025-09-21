@@ -43,8 +43,9 @@
                 color: #000;
                 text-decoration: none;
                 display: flex;
+                flex-wrap: wrap;
                 align-items: center;
-                gap: 25px;  
+                gap: 5px 25px;  
             }
 
             .item img {
@@ -60,6 +61,15 @@
                 margin: 0;
                 font-size: 25px; 
                 line-height: 1.3;  
+                width: calc(100% - 145px); /* image width + gap */
+            }
+
+            .item p2 {
+                margin: 0;
+                text-align: left;
+                font-size: 20px;
+                color: #666;
+                margin-left: 145px; /* push to second row, aligned with main text */
             }
 
             .menu {
@@ -120,7 +130,7 @@
             <div class="grid">
                 <a href="https://www.wattpad.com/1531691152-panel-a-semmiben" class="item">
                     <img src="panelasemmiben.png" alt="Rövidke Novella">
-                    <p>🇭🇺 Panel a semmiben |</p>
+                    <p>🇭🇺 Panel a semmiben</p>
                     <p2>Novella</p2>
                 </a>
                 <a href="#ComingSoon" class="item">
