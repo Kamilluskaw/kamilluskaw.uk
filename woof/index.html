@@ -321,18 +321,3 @@
         </script>
     </body>
 </html>
-            // Video handling
-            const video = document.getElementById('myVideo');
-            video.addEventListener('loadedmetadata', function() {
-                video.play();
-                video.muted = true;
-                video.loop = true;
-            });
-            
-            video.addEventListener('error', function() {
-                console.error('Error loading video:', video.error);
-                video.style.display = 'none';
-            });
-        </script>
-    </body>
-</html>
