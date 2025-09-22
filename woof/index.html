@@ -321,6 +321,10 @@
                 width: 90%;
                 max-width: 250px;
             }
+                        /* Adjust YouTube container for mobile */
+            .youtube-container {
+                max-width: 90%;
+            }
         }
 
         </style>
@@ -378,12 +382,13 @@
                     </div>
                          
                     <p class="video-description">Latest upload ^m^</p>
-                    <iframe width="420" height="315"
-                        src="https://www.youtube.com/embed/FE3y2cgnLTQ"
+              <div class="youtube-container">
+                    <iframe src="https://www.youtube.com/embed/FE3y2cgnLTQ"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen>
-                    </iframe> 
+                    </iframe>
+                </div>
                 </div>
                <div class="page" id="page3">
                     <h1>Blogs! </h1>
