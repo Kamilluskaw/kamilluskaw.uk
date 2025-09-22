@@ -352,12 +352,18 @@
             const totalPages = 3;
 
             function changePage(direction) {
-                const newPage = currentPage + direction;
-                if (newPage >= 1 && newPage <= totalPages) {
-                    document.getElementById(`page${currentPage}`).classList.remove('active');
-                    document.getElementById(`page${newPage}`).classList.add('active');
-                    currentPage = newPage;
+                let newPage = currentPage + direction;
+                
+                // Wrap around to the other end
+                if (newPage < 1) {
+                    newPage = totalPages;
+                } else if (newPage > totalPages) {
+                    newPage = 1;
                 }
+
+                document.getElementById(`page${currentPage}`).classList.remove('active');
+                document.getElementById(`page${newPage}`).classList.add('active');
+                currentPage = newPage;
             }
         </script>
     </body>
