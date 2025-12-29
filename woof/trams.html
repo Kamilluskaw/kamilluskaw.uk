@@ -1,79 +1,594 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>?</title>
-        <link rel="icon" type="image/x-icon" href="icon.ico">
-        <style>
-            @font-face {
-                font-family: 'Ithaca';
-                src: url('ithaca.ttf') format('truetype');
-            }
-
-            body {
-                background: url("snowing.gif") center/cover no-repeat;
-                height: 100vh;
-                margin: 0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-family: 'Ithaca', sans-serif;
-            }
-
-            .main {
-                background: rgba(255, 255, 255, 0.637);
-                width: 1000px;
-                height: 600px;
-                border-radius: 30px;
-                padding: 20px;
-                text-align: center;
-                overflow-y: auto;
-            }
-
-            .blog-post {
-                margin: 20px auto;
-                max-width: 800px;
-                text-align: left;
-                padding: 20px;
-                background: rgba(255, 255, 255, 0.5);
-                border-radius: 10px;
-            }
-
-            .blog-post h2 {
-                color: #ffffff;
-                margin-bottom: 10px;
-            }
-
-            .blog-post .date {
-                color: #ffffff;
-                font-size: 0.9em;
-                margin-bottom: 15px;
-            }
-
-            .back-button {
-                display: inline-block;
-                margin: 10px;
-                padding: 8px 15px;
-                background: transparent;
-                border: 1px dashed #999;
-                color: #666;
-                text-decoration: none;
-                font-family: 'Ithaca';
-                border-radius: 5px;
-            }
-
-            .back-button:hover {
-                background: #0a0b49;
-                color: #fff;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="main">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Városszociológia Beadandó</title>
+    <link rel="icon" href="icon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
         
-            <div class="blog-post"><h2>very</h2><div class="date">aw mwhaaa </div><p>boldog csirke</table></p></div>
+        body {
+            background-color: #fafafa;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Header */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 1.2rem 0;
+            transition: all 0.3s ease;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 300;
+            letter-spacing: -0.5px;
+            color: #222;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .logo span {
+            font-weight: 600;
+            color: #5d7af2;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #5d7af2;
+        }
+        
+        /* Main Content */
+        main {
+            margin-top: 80px;
+        }
+        
+        /* Sections */
+        .section {
+            padding: 5rem 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3.5rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            font-weight: 300;
+            color: #222;
+            margin-bottom: 0.5rem;
+        }
+        
+        .section-title p {
+            color: #777;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .title-line {
+            height: 2px;
+            width: 60px;
+            background: linear-gradient(to right, transparent, #5d7af2, transparent);
+            margin: 1.2rem auto;
+        }
+        
+        /* Video Section */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .video-container {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        
+        .video-container:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .video-player {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .video-info {
+            padding: 1.5rem;
+        }
+        
+        .video-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #222;
+        }
+        
+        .video-info p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        /* Text Blocks */
+        .text-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .text-block {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        
+        .text-block:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+        
+        .text-block h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #222;
+            display: flex;
+            align-items: center;
+        }
+        
+        .text-block h3 i {
+            margin-right: 10px;
+            color: #5d7af2;
+        }
+        
+        .text-block p {
+            color: #555;
+            margin-bottom: 1.2rem;
+        }
+        
+        /* Audio Section */
+        .audio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .audio-player {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        
+        .audio-player:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+        
+        .audio-info {
+            margin-bottom: 1.5rem;
+        }
+        
+        .audio-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #222;
+        }
+        
+        .audio-info p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        audio {
+            width: 100%;
+            height: 45px;
+            outline: none;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: #ddd;
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-content p {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            color: #ddd;
+            font-size: 1.2rem;
+            margin: 0 1rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: #5d7af2;
+        }
+        
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+        }
+        
+        .scroll-dot {
+            display: block;
+            width: 10px;
+            height: 10px;
+            background-color: #ccc;
+            border-radius: 50%;
+            margin: 15px 0;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        
+        .scroll-dot.active {
+            background-color: #5d7af2;
+            transform: scale(1.3);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .scroll-indicator {
+                display: none;
+            }
+            
+            .video-grid, .text-grid, .audio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">minimal<span>media</span></a>
+                <ul class="nav-links">
+                    <li><a href="#videos">Videos</a></li>
+                    <li><a href="#texts">Text</a></li>
+                    <li><a href="#audio">Audio</a></li>
+                </ul>
+            </div>
         </div>
+    </header>
+    
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+        <span class="scroll-dot active" data-section="videos"></span>
+        <span class="scroll-dot" data-section="texts"></span>
+        <span class="scroll-dot" data-section="audio"></span>
+    </div>
+    
+    <main>
+        <!-- Video Section -->
+        <section id="videos" class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Visual Experiences</h2>
+                    <p>Minimalist videos with subtle motion and calming aesthetics</p>
+                    <div class="title-line"></div>
+                </div>
+                
+                <div class="video-grid">
+                    <div class="video-container">
+                        <video class="video-player" controls poster="https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80">
+                            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="video-info">
+                            <h3>Nature's Rhythm</h3>
+                            <p>A calming visual journey through forests and rivers, capturing the gentle flow of nature.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="video-container">
+                        <video class="video-player" controls poster="https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80">
+                            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="video-info">
+                            <h3>Urban Flow</h3>
+                            <p>Time-lapse of cityscapes transitioning from day to night with smooth, flowing motion.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="video-container">
+                        <video class="video-player" controls poster="https://images.unsplash.com/photo-1505144808419-1957a94ca61e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80">
+                            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="video-info">
+                            <h3>Celestial Motion</h3>
+                            <p>Starry night skies with subtle movement of clouds and celestial bodies.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         
-    </body>
+        <!-- Text Blocks Section -->
+        <section id="texts" class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Minimalist Thoughts</h2>
+                    <p>Short reflections on simplicity, design, and mindful living</p>
+                    <div class="title-line"></div>
+                </div>
+                
+                <div class="text-grid">
+                    <div class="text-block">
+                        <h3><i class="fas fa-leaf"></i> The Essence of Minimalism</h3>
+                        <p>Minimalism isn't about having less. It's about making room for what matters. By removing the non-essential, we create space for meaningful experiences and connections.</p>
+                        <p>This philosophy extends beyond physical possessions to our digital spaces, schedules, and relationships.</p>
+                    </div>
+                    
+                    <div class="text-block">
+                        <h3><i class="fas fa-palette"></i> Design Philosophy</h3>
+                        <p>Good design is as little design as possible. It focuses on essential elements, eliminates distractions, and creates intuitive experiences that feel both simple and profound.</p>
+                        <p>Every element should serve a purpose, and every interaction should feel intentional.</p>
+                    </div>
+                    
+                    <div class="text-block">
+                        <h3><i class="fas fa-brain"></i> Mindful Consumption</h3>
+                        <p>In a world of constant information flow, being selective about what we consume becomes an act of self-care. Choose content that enriches rather than depletes your mental energy.</p>
+                        <p>Quality over quantity applies to information as much as physical objects.</p>
+                    </div>
+                    
+                    <div class="text-block">
+                        <h3><i class="fas fa-heart"></i> Emotional Space</h3>
+                        <p>Creating emotional space is as important as physical space. Minimalism teaches us to let go of emotional clutter, unresolved feelings, and toxic relationships.</p>
+                        <p>This creates room for peace, creativity, and genuine connection.</p>
+                    </div>
+                    
+                    <div class="text-block">
+                        <h3><i class="fas fa-clock"></i> The Value of Time</h3>
+                        <p>Time is our most finite resource. Minimalism helps us reclaim our time by reducing decision fatigue and eliminating unnecessary commitments.</p>
+                        <p>With fewer distractions, we can focus on what truly brings fulfillment.</p>
+                    </div>
+                    
+                    <div class="text-block">
+                        <h3><i class="fas fa-mountain"></i> Digital Minimalism</h3>
+                        <p>Our digital lives often become cluttered with unused apps, unread emails, and endless notifications. Digital minimalism encourages intentional use of technology.</p>
+                        <p>Create a digital environment that supports your goals rather than distracting from them.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Audio Section -->
+        <section id="audio" class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Soundscapes</h2>
+                    <p>Minimalist audio experiences for focus and relaxation</p>
+                    <div class="title-line"></div>
+                </div>
+                
+                <div class="audio-grid">
+                    <div class="audio-player">
+                        <div class="audio-info">
+                            <h3>Forest Ambience</h3>
+                            <p>A gentle combination of rustling leaves, distant birds, and a soft breeze through trees. Perfect for relaxation or focus.</p>
+                        </div>
+                        <audio controls>
+                            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    
+                    <div class="audio-player">
+                        <div class="audio-info">
+                            <h3>Minimalist Piano</h3>
+                            <p>Simple, repeating piano patterns with subtle variations. Designed to enhance concentration without distraction.</p>
+                        </div>
+                        <audio controls>
+                            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>© 2023 Minimal Media. All rights reserved.</p>
+                <p>A demonstration of minimalist web design with subtle animations and multimedia elements.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.section');
+            const scrollDots = document.querySelectorAll('.scroll-dot');
+            
+            // Function to check if element is in viewport
+            function isInViewport(element) {
+                const rect = element.getBoundingClientRect();
+                return (
+                    rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.75 &&
+                    rect.bottom >= 0
+                );
+            }
+            
+            // Function to handle scroll events
+            function handleScroll() {
+                // Animate sections when they come into view
+                sections.forEach(section => {
+                    if (isInViewport(section)) {
+                        section.classList.add('visible');
+                    }
+                });
+                
+                // Update active scroll dot
+                let currentSection = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (window.pageYOffset >= (sectionTop - 200)) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+                
+                scrollDots.forEach(dot => {
+                    dot.classList.remove('active');
+                    if (dot.getAttribute('data-section') === currentSection) {
+                        dot.classList.add('active');
+                    }
+                });
+            }
+            
+            // Initialize scroll handler
+            window.addEventListener('scroll', handleScroll);
+            handleScroll(); // Run once on page load
+            
+            // Scroll to section when dots are clicked
+            scrollDots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    const sectionId = this.getAttribute('data-section');
+                    const targetSection = document.getElementById(sectionId);
+                    
+                    if (targetSection) {
+                        window.scrollTo({
+                            top: targetSection.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Header scroll effect
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (window.scrollY > 100) {
+                    header.style.padding = '0.8rem 0';
+                    header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.08)';
+                } else {
+                    header.style.padding = '1.2rem 0';
+                    header.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.05)';
+                }
+            });
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
 </html>
