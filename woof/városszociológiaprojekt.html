@@ -14,7 +14,6 @@
         }
         body {
             background-color: #1f1f1f;
-            background: url("villamosok.gif") center/cover no-repeat;
             color: #333;
             line-height: 1.6;
             overflow-x: hidden;
@@ -220,9 +219,27 @@
             height: 180px;
         }
     }
+    .bg-gif {
+        background-color: #2e2e2e; 
+        width: 100%;
+        margin-top: 80px; 
+        text-align: center; 
+        padding: 20px 0;
+    }
+
+    .bg-gif img {
+        max-width: 1080px; 
+        width: 90%; 
+        height: auto; 
+        display: block;
+        margin: 0 auto; 
+    }
     </style>
 </head>
 <body>
+<div class="bg-gif">
+    <img src="villamosok.gif" alt="GIF animation">
+</div>
     <header>
         <div class="container">
             <div class="header-content">
@@ -472,6 +489,7 @@
         </section>
     </main>
     <script>
+        
         document.addEventListener('DOMContentLoaded', function() {
             const sections = document.querySelectorAll('.section');
             const scrollDots = document.querySelectorAll('.scroll-dot');
