@@ -1,58 +1,97 @@
 <!DOCTYPE html>
 <html>
+ <audio autoplay loop >
+  <source src="eld.mp3" type="audio/mpeg">
+ </audio> 
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Milka Weblapja</title>
+<link rel="icon" type="image/x-icon" href="icon.ico">
 <style>
 body {
-  font-family: "Lato", sans-serif;
-}
-
+ background: url("data:image/jpeg;base64,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") center/cover no-repeat;
+ font-family: "Ithaca";
+} 
 .oldalcucc {
-  width: 150px;
-  position: fixed;
-  z-index: 1;
-  top: 20px;
-  left: 20px;
-  background: #bba0a7;
-  overflow-x: hidden;
-  padding: 8px 0;
+width: 150px;
+position: fixed;
+z-index: 1; 
+top: 40px;
+left: 40px;
+border-radius: 15px;
+background: #6548;
+corners: 40%;
+overflow-x: hidden;
+padding: 8px 0;
 }
-
 .oldalcucc a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 15px;
-  color: #ffffff;
-  display: block;
+padding: 5px 10px 10px 15px;
+text-decoration: bold;
+font-size: 15px;
+color: #ffffff;
+align-items: flex-start;
+display: flex;
 }
-
 .oldalcucc a:hover {
-  color: #790647;
+color: hotpink;
 }
+.foize a:hover {
+color: hotpink;
+}
+.foize { margin-left: 200px; font-size: 28px; padding: 0px 10px; 
+background: #6548;
+border-radius: 15px;
+}
+@media screen and (max-height: 450px)
 
-.foize {
-  margin-left: 340px;
-  font-size: 28px; 
-  padding: 0px 10px;
-}
-
-@media screen and (max-height: 450px) {
-  .oldalcucc {padding-top: 15px;}
-  .oldalcucc a {font-size: 18px;}
-}
+{
+.oldalcucc {padding-top: 15px;}
+.oldalcucc a {font-size: 18px;} } 
 </style>
 </head>
 <body>
-
-<div class="oldalcucc">
-  <a href="https://kamilluskaw.uk/projektek.html">Projektjeim</a>
-  <a href="https://kamilluskaw.uk/top10.html">Top 10-es listák</a>
-</div>
-
+<div class="oldalcucc"> 
+<a href="https://kamilluskaw.uk/projektek.html">Projektjeim</a> 
+<a href="https://kamilluskaw.uk/top10.html">Top 10-es listák</a>
+</div> 
 <div class="foize">
-  <h2>Rólam</h2>
-  <p>hewo.</p>
-</div>  
-
+<h1> <ul><em> www.kamilluskaw.uk </em> </ul> </h1>
+<h2>Hellóóó! Üdvözöllek a <a href="https://kamilluskaw.uk">Weboldalomon!</a></h2>
+    <h5><strong>Milka</strong> vagyok, egy huszonéves <a href="https://kamilluskaw.uk/jatekok.html"> szociológus,</a> akinek a hobbiai különböző <a href="https://kamilluskaw.uk/projektek.html"> kreatív</a> önmegvalósító metodikákban érvényelül, beleértve  <a href="https://kamilluskaw.uk/modjaim.html">játékok modolása,</a> <a href="https://kamilluskaw.uk/jatekok.html"> tervezése,</a> <a href="https://kamilluskaw.uk/videotar.html"> videók szerkesztése,</a> <a href="https://kamilluskaw.uk/zene.html">zene,</a> <a href="https://kamilluskaw.uk/rajzok.html">rajz.</a></h5>
+    <h5>Nagyon szeretek <a href="https://kamilluskaw.uk/rajzok.html">zenét hallgatni,</a> <a href="https://kamilluskaw.uk/F1.html"> Formula 1 futamokat nézni</a><k> <em>(GO WEEYUMS!)</em></k>, verseket írni, és különböző idő mosdókagyló játékokba napokat beleölni.</h5>
+<h5>Akadémikus tekintetben elsősoron a <a href="https://kamilluskaw.uk/kornyezet.html">környezetváltozással kapcsolatos társadalmi átélések </a>, döntéshozatalok állnak hozzám a legközelebb. Érdeklődési szempontból ezenfelül <a href="https://kamilluskaw.uk/tomegkozlekedes.html"> a tömegközlekedés szerepe társadalmi összetartozás</a> érdekében is kedvence témáim közé sorolható.</p>
+<h5>Korábbiakban <a href="https://kamilluskaw.uk/kornyezet.html">politikailag aktív </a> személyiség voltam, napjainkban <a href="https://kamilluskaw.uk/kovetkezoperspektiva.html"> megfigyelő, eszmei gondolatalkotó.</a> </h5>
+<h3>Virtuális megjelenéseim: </h5>
+<ul>-<a href="https://www.youtube.com/channel/UCnuZ6kjuBXCkgDKlK8Xagkg"> Képlékeny Pontosság </a> - Egy Közgazdász, egy Társadalomtudós, és egy Történész beszélgetései. </ul>
+<ul>-<a href="https://www.youtube.com/@mupikcsapata/videos"> Mupik Csapata </a> - Egy tucat fiatalkorú barát szutykolódásainak reflektálódása. </ul>
+<ul>-<a href="https://www.youtube.com/@muppaklippek"> Muppa Klippek </a> - A Mupik DE! rövidebben. </ul>
+<ul> <3 </ul>
+</div>
 </body>
 </html> 
+<style>
+    h1 {
+      color:white;
+    }
+    ul {
+      color:white;
+    }
+    a {
+      color:white;
+    }
+    h2 {
+      color:violet;
+    }
+    h5 {
+      color:orange;
+    }
+    strong {
+      color:purple;
+    }
+    h3{
+      color:purple;
+    }
+    k {
+color:indigo;}
+ </style>
+
