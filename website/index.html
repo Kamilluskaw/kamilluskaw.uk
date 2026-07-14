@@ -400,7 +400,7 @@
                          <a href="https://kamilluskaw.uk/trams/villamosvonalakprojekt.html" class="item">
                             <img src="vili.jpg" alt="University work for one of my classes">
                             <div class="text-container">
-                                <p>🇭🇺 VillamosVonalak/p>
+                                <p>🇭🇺 VillamosVonalak</p>
                                 <p2>University Project</p2>
                             </div>
                         </a>
@@ -468,6 +468,13 @@
                 document.getElementById(`page${currentPage}`).classList.remove('active');
                 document.getElementById(`page${newPage}`).classList.add('active');
                 currentPage = newPage;
+            }
+
+            function handleKeypress(keycode) {
+                if (keycode.lower()=="a")
+                    changePage(-1)
+                if (keycode.lower()=="d")
+                    changePage(1)
             }
         </script>
     </body>
