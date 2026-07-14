@@ -413,7 +413,7 @@
                             <img src="milkus.jpg" alt="Me!">
                             <div class="text-container">
                                 <p>Hiiiii!</p>
-                                <p2>My name is Kamilla, I'm a 21yrs old, #SoonToBeSociologist who loves to dabble into different things, including web design now!</p2>
+                                <p2>My name is Kamilla, I'm a 21yrs old, sociologist who loves to dabble into different things, including web design even!</p2>
                             </div>
                         </a>
                     </div>
@@ -457,9 +457,7 @@
 
             function changePage(direction) {
                 let newPage = currentPage + direction;
-                
-                // Wrap around to the other end
-                if (newPage < 1) {
+                    if (newPage < 1) {
                     newPage = totalPages;
                 } else if (newPage > totalPages) {
                     newPage = 1;
@@ -476,6 +474,8 @@
                 if (keycode.lower()=="d")
                     changePage(1)
             }
+
+            document.onkeydown = (e) => handleKeypress(e);
         </script>
     </body>
 </html>
