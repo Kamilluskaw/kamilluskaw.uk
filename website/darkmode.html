@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+ <audio autoplay loop >
+  <source src="soundtrack.mp3" type="audio/mpeg">
+ </audio> 
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Milka's Website :3</title>
+        <link rel="icon" type="image/x-icon" href="icon.ico">
+        <style>
+            @font-face {
+                font-family: 'Ithaca';
+                src: url('ithaca.ttf') format('truetype');
+            }
+
+            body {
+                background: url("bg.gif") center/cover no-repeat;
+                height: 100vh;
+                margin: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-family: 'Ithaca', sans-serif;
+            }
+
+            .main {
+                background: rgb(35, 15, 115);
+                width: 1000px;
+                height: 600px;
+                border-radius: 30px;
+                padding: 20px;
+                text-align: center;
+            }
+
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                margin: 30px auto;
+                max-width: 800px;
+                padding: 0 20px;
+            }
+
+            .item {
+                color: #00e1ff;
+                text-decoration: none;
+                display: flex;
+                align-items: flex-start;
+                gap: 25px;
+            }
+
+            .item img {
+                width: 120px;
+                height: 120px;
+                object-fit: cover;
+                border-radius: 10px;
+                border: 5px solid #fff;
+            }
+
+            .item .text-container {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+
+            .item p {
+                text-align: left;
+                margin: 0;
+                font-size: 25px; 
+                line-height: 1.3;  
+            }
+
+            .item p2 {
+                text-align: left;
+                font-size: 20px;
+                color: #666;
+                margin: 0;
+            }
+
+            .menu {
+                margin-top: 20px;
+            }
+
+            .menu-btn {
+                background: transparent;
+                color: #ffffff;
+                padding: 8px;
+                font-size: 14px;
+                border: 1px dashed #999;
+                font-family: 'Ithaca';
+                cursor: pointer;
+            }
+
+            .menu-content {
+                display: none;
+                position: absolute;
+                background: #0c0051;
+                min-width: 160px;
+                box-shadow: 0 8px 16px #0003;
+                border-radius: 5px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .menu-content a {
+                color: #00fff2;
+                padding: 12px;
+                display: block;
+                text-decoration: none;
+            }
+
+            .menu-content a.youtube {
+                color: #FF0000;
+            }
+
+            .menu-content a.twitter {
+                color: #1DA1F2;
+            }
+
+            .menu-content a.twitch {
+                color: #6441A4;
+            }
+
+            .menu:hover .menu-content { display: block; }
+            .menu:hover .menu-btn { background: #0a0b49; }
+
+            .bio { margin: 5px 0; }
+            .bio-text {
+                display: none;
+                position: absolute;
+                background: #fff;
+                padding: 15px;
+                border-radius: 10px;
+                width: 300px;
+                left: 50%;
+                transform: translateX(-50%);
+                border: 2px solid #666;
+            }
+            .bio:hover .bio-text { display: block; }
+
+            .page-container {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+            }
+
+            .page {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                transition: transform 0.5s ease;
+                display: none;
+            }
+
+            .page.active {
+                display: block;
+            }
+
+            .nav-button {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background: rgba(255, 253, 123, 0.295);
+                border: none;
+                padding: 20px 10px;
+                cursor: pointer;
+                font-family: 'Ithaca';
+                font-size: 20px;
+                border-radius: 5px;
+                transition: background 0.3s;
+            }
+
+            .nav-button:hover {
+                background: rgba(255, 255, 255, 0.4);
+            }
+
+            .nav-button.prev {
+                left: 10px;
+            }
+
+            .nav-button.next {
+                right: 10px;
+            }
+
+            video {
+                border: 5px solid #fff;
+                border-radius: 10px;
+            }
+
+            .video-description {
+                margin: 20px 0;
+                font-size: 18px;
+                color: #666;
+            }
+        .youtube-container {
+            position: relative;
+            width: 100%;
+            max-width: 420px;
+            margin: 0 auto;
+        }
+
+        .youtube-container::after {
+            content: "";
+            display: block;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        }
+
+        .youtube-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 5px solid #fff;
+            border-radius: 10px;
+        }
+           @media screen and (max-width: 768px) {
+            body {
+                height: auto;
+                min-height: 100vh;
+                padding: 5px;
+                display: block;
+                overflow-y: auto;
+            }
+
+            .main {
+                width: 95%;
+                height: auto;
+                min-height: auto;
+                padding: 5px;
+                margin: 15px auto;
+                overflow-y: visible;
+                border-radius: 20px;
+            }
+
+            .page-container {
+                position: relative;
+                height: auto;
+                min-height: 500px;
+                overflow: visible;
+            }
+
+            .page {
+                position: relative;
+                height: auto;
+                padding: 10px;
+                display: none;
+            }
+
+            .page.active {
+                display: block;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+                width: 100%;
+                gap: 20px;
+                padding: 0;
+                margin: 20px 0;
+            }
+
+            .item {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                gap: 5px;
+                text-align: center;
+            }
+
+            .item img {
+                width: 100px;
+                height: 100px;
+                max-width: 100%;
+                object-fit: cover;
+            }
+
+            .item .text-container {
+                align-items: center;
+                width: 100%;
+            }
+
+            .item p {
+                text-align: center;
+                font-size: 22px;
+            }
+
+            .item p2 {
+                text-align: center;
+                font-size: 16px;
+            }
+
+            .nav-button {
+                position: fixed;
+                top: auto;
+                bottom: 20px;
+                transform: none;
+                padding: 15px;
+                font-size: 18px;
+                background: rgba(255, 253, 123, 0.7);
+            }
+
+            .nav-button.prev {
+                left: 20px;
+            }
+
+            .nav-button.next {
+                right: 20px;
+            }
+
+            .youtube-container {
+                position: relative;
+                width: 100%;
+                height: 0;
+                padding-bottom: 56.25%; /* 16:9 aspect ratio */
+                margin: 20px auto;
+            }
+
+            .youtube-container iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border: 5px solid #fff;
+                border-radius: 10px;
+            }
+
+            .bio-text {
+                width: 80%;
+                max-width: 300px;
+                font-size: 14px;
+                bottom: 100%;
+                top: auto;
+            }
+
+            h1 {
+                font-size: 24px;
+                margin: 15px 0;
+            }
+
+            .menu-content {
+                width: 90%;
+                max-width: 250px;
+            }
+            .youtube-container {
+                max-width: 90%;
+            }
+        }
+
+        </style>
+    </head>    
+    <body>
+        <div class="main">
+            <div class="page-container">
+                <div class="page active" id="page1">
+                    <h1>Projects and such ^v^ </h1>
+                    <div class="bio">
+                        <p>Here you can follow through what I"ve made so far in life pretty much.</p>
+                        <span class="bio-text">As you can see I've got quite a few things going on nowadays :p </span>
+                    </div>
+                    <div class="grid">
+                        <a href="https://www.wattpad.com/1531691152-panel-a-semmiben" class="item">
+                            <img src="panelasemmiben.png" alt="Rövidke Novella">
+                            <div class="text-container">
+                                <p>🇭🇺 Panel a semmiben</p>
+                                <p2>Novella</p2>
+                            </div>
+                        </a>
+                        <a href="#ComingSoon" class="item">
+                            <img src="data.gif" alt="HOI4 Mod">
+                            <div class="text-container">
+                                <p>🇬🇧 Disgraced Archangels</p>
+                                <p2>Hearts of Iron IV Mod</p2>
+                            </div>
+                        </a>
+                        <a href="https://modrinth.com/mod/kamilkachanges" class="item">
+                            <img src="kamilkachanges.png" alt="Minecraft Mod">
+                            <div class="text-container">
+                                <p>🇬🇧 Kamilka's Changes</p>
+                                <p2>Minecraft Mod</p2>
+                            </div>
+                        </a>
+                        <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2893799577" class="item">
+                            <img src="pinkpilled.gif" alt="Wallpaper for Wallpaper Engine">
+                            <div class="text-container">
+                                <p>🇺🇳 Pink Pilled Nato</p>
+                                <p2>Wallpaper engine wallpaper</p2>
+                            </div>
+                        </a>
+                         <a href="#ComingSoon" class="item">
+                            <img src="tramverse.gif" alt="A simple game about trams">
+                            <div class="text-container">
+                                <p>🇬🇧 TramVerse</p>
+                                <p2>PICO-8 Game</p2>
+                            </div>
+                        </a>
+                         <a href="https://kamilluskaw.uk/trams/villamosvonalakprojekt.html" class="item">
+                            <img src="vili.jpg" alt="University work for one of my classes">
+                            <div class="text-container">
+                                <p>🇭🇺 VillamosVonalak</p>
+                                <p2>University Project</p2>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="page" id="page2">
+                    <h1>About me</h1>
+                    <div class="grid">
+                        <a href="https://www.kamilluskaw.uk" class="item">
+                            <img src="milkus.jpg" alt="Me!">
+                            <div class="text-container">
+                                <p>Hiiiii!</p>
+                                <p2>My name is Kamilla/Milka, I'm a 21yrs old, sociologist who loves to dabble into different things, including web design even!</p2>
+                            </div>
+                        </a>
+                    </div>
+                         
+                    <p class="video-description">Latest upload on my channel ^m^</p>
+              <div class="youtube-container">
+                    <iframe src="https://www.youtube.com/embed/hYEHipblqQc"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                </div>
+               <div class="page" id="page3">
+                    <h1>My blogs</h1>
+                    <div class="grid">
+                        <a href="disgraced/devdiary.html" class="item">
+                            <img src="1.gif" alt="DA-Dev Diary">
+                            <div class="text-container">
+                                <p>🇬🇧 DA-Dev Diary</p>
+                                <p2>Development diary for Disgraced Archangels Torn Apart. Warning: the website has a flashing background. </p>
+                            </div>
+                        </a>
+                        <a href="disgraced/devdiary.html" class="item">
+                            <img src="1.gif" alt="Politics">
+                            <div class="text-container">
+                                <p>🇬🇧 Living Livid</p>
+                                <p2>Political diary of a queer woman in her 20s in Hungary. </p>
+                            </div>
+                        </a>
+                        <a href="disgraced/devdiary.html" class="item">
+                            <img src="1.gif" alt="Predictions">
+                            <div class="text-container">
+                                <p>🇬🇧 Kamilla's Predictions</p>
+                                <p2>Prediction by me regarding mostly F1 or elections.</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <button class="nav-button prev" onclick="changePage(-1)">a</button>
+                <button class="nav-button next" onclick="changePage(1)">d</button>
+            </div>
+            <div class="menu">
+                <button class="menu-btn">You can also find me on these platforms c: </button>
+                <div class="menu-content">
+                    <a href="https://x.com/kamilluskaw" class="twitter">Twitter</a>
+                    <a href="https://www.twitch.tv/kamilluskaw" class="twitch">Twitch</a>
+                    <a href="https://www.youtube.com/@kamilluskaw" class="youtube">Youtube</a>
+                </div>
+            </div>
+        </div>
+        <script>
+            let currentPage = 1;
+            const totalPages = 3;
+
+            function changePage(direction) {
+                let newPage = currentPage + direction;
+                    if (newPage < 1) {
+                    newPage = totalPages;
+                } else if (newPage > totalPages) {
+                    newPage = 1;
+                }
+
+                document.getElementById(`page${currentPage}`).classList.remove('active');
+                document.getElementById(`page${newPage}`).classList.add('active');
+                currentPage = newPage;
+            }
+
+            function handleKeypress(keycode) {
+                if (keycode.toLowerCase()=="a")
+                    changePage(-1)
+                if (keycode.toLowerCase()=="d")
+                    changePage(1)
+            }
+
+            document.onkeydown = (e) => handleKeypress(e.key);
+        </script>
+    </body>
+</html>
