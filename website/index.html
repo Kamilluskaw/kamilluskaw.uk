@@ -82,6 +82,16 @@
             .menu {
                 margin-top: 20px;
             }
+           .change-mode {
+                position: absolute;
+                top: 100px;
+                bottom: auto;
+                transform: none;
+                padding: 15px;
+                font-size: 18px;
+                color: #fff;
+                background: rgba(36, 17, 90, 0.7);
+            }
 
             .menu-btn {
                 background: transparent;
@@ -177,6 +187,7 @@
                 background: rgba(255, 255, 255, 0.4);
             }
 
+
             .nav-button.prev {
                 left: 10px;
             }
@@ -218,6 +229,25 @@
             border-radius: 10px;
         }
            @media screen and (max-width: 768px) {
+
+
+            .change-mode {
+                position: 14;
+                top: 50%;
+                transform: translateY(-50%);
+                background: rgba(196, 216, 249, 0.295);
+                border: none;
+                padding: 20px 10px;
+                cursor: pointer;
+                font-family: 'Ithaca';
+                font-size: 20px;
+                border-radius: 10px;
+                transition: background 0.3s;
+            }
+
+            .change-mod:hover {
+                background: rgba(196, 216, 249, 0.295);
+            }
             body {
                 height: auto;
                 min-height: 100vh;
@@ -301,6 +331,8 @@
                 font-size: 18px;
                 background: rgba(255, 253, 123, 0.7);
             }
+
+
 
             .nav-button.prev {
                 left: 20px;
@@ -492,5 +524,12 @@
 
             document.onkeydown = (e) => handleKeypress(e.key);
         </script>
+        <button id="change-mode" class="change-mode" >Turn off the lights</button>
+
+		<script type="text/javascript">
+    		document.getElementById("change-mode").onclick = function () {
+       		 location.href = "kamilluskaw.uk/index";
+    			};
+		</script>
     </body>
 </html>
