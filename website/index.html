@@ -15,7 +15,7 @@
             }
 
             body {
-                background: url("bg.gif") center/cover no-repeat;
+                background: url("darkbg.gif") center/cover no-repeat;
                 height: 100vh;
                 margin: 0;
                 display: flex;
@@ -25,14 +25,27 @@
             }
 
             .main {
-                background: rgb(240, 227, 193);
+                background: #04001d;
                 width: 1000px;
                 height: 600px;
                 border-radius: 30px;
                 padding: 20px;
                 text-align: center;
             }
-
+            .main h1 {
+                text-align: center;
+                margin: 0;
+                color: #fff;
+                font-size: 25px; 
+                line-height: 1.3;  
+            }
+            .main p3 {
+                text-align: center;
+                margin: 0;
+                color: #c1c1c1;
+                font-size: 20px; 
+                line-height: 1.3;  
+            }
             .grid {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
@@ -43,7 +56,7 @@
             }
 
             .item {
-                color: #000;
+                color: #00fff2;
                 text-decoration: none;
                 display: flex;
                 align-items: flex-start;
@@ -75,14 +88,14 @@
             .item p2 {
                 text-align: left;
                 font-size: 20px;
-                color: #666;
+                color: #00afa7;
                 margin: 0;
             }
 
             .menu {
                 margin-top: 20px;
             }
-           .change-mode {
+            .change-mode {
                 position: absolute;
                 top: 100px;
                 left: 250px;
@@ -90,16 +103,14 @@
                 transform: none;
                 padding: 15px;
                 font-size: 18px;
-                color: #fff;
-                background: rgba(36, 17, 90, 0.7);
+                background: rgba(234, 228, 147, 0.7);
             }
-
             .menu-btn {
                 background: transparent;
-                color: #ffffff;
+                color: #00fff2;
                 padding: 8px;
                 font-size: 14px;
-                border: 1px dashed #999;
+                border: 1px dashed #c4c3c3;
                 font-family: 'Ithaca';
                 cursor: pointer;
             }
@@ -107,7 +118,7 @@
             .menu-content {
                 display: none;
                 position: absolute;
-                background: #fff;
+                background: #0c0051;
                 min-width: 160px;
                 box-shadow: 0 8px 16px #0003;
                 border-radius: 5px;
@@ -116,7 +127,7 @@
             }
 
             .menu-content a {
-                color: #000;
+                color: #00fff2;
                 padding: 12px;
                 display: block;
                 text-decoration: none;
@@ -137,11 +148,13 @@
             .menu:hover .menu-content { display: block; }
             .menu:hover .menu-btn { background: #0a0b49; }
 
+
             .bio { margin: 5px 0; }
             .bio-text {
+                color: #00fff2;
                 display: none;
                 position: absolute;
-                background: #fff;
+                background: rgb(35, 15, 115);
                 padding: 15px;
                 border-radius: 10px;
                 width: 300px;
@@ -174,7 +187,7 @@
                 position: absolute;
                 top: 50%;
                 transform: translateY(-50%);
-                background: rgba(255, 253, 123, 0.295);
+                background: rgba(123, 246, 255, 0.521);
                 border: none;
                 padding: 20px 10px;
                 cursor: pointer;
@@ -187,7 +200,6 @@
             .nav-button:hover {
                 background: rgba(255, 255, 255, 0.4);
             }
-
 
             .nav-button.prev {
                 left: 10px;
@@ -230,25 +242,24 @@
             border-radius: 10px;
         }
            @media screen and (max-width: 768px) {
-
-
             .change-mode {
                 position: 14;
                 top: 50%;
                 transform: translateY(-50%);
-                background: rgba(196, 216, 249, 0.295);
+                background: rgba(123, 174, 255, 0.295);
                 border: none;
                 padding: 20px 10px;
                 cursor: pointer;
                 font-family: 'Ithaca';
                 font-size: 20px;
-                border-radius: 10px;
+                border-radius: 5px;
                 transition: background 0.3s;
             }
 
             .change-mod:hover {
-                background: rgba(196, 216, 249, 0.295);
+                background: rgba(175, 203, 248, 0.295);
             }
+
             body {
                 height: auto;
                 min-height: 100vh;
@@ -333,8 +344,6 @@
                 background: rgba(255, 253, 123, 0.7);
             }
 
-
-
             .nav-button.prev {
                 left: 20px;
             }
@@ -371,7 +380,7 @@
 
             h1 {
                 font-size: 35px;
-                color: #000;
+                color: #fff;
                 margin: 15px 0;
             }
 
@@ -382,8 +391,9 @@
             .youtube-container {
                 max-width: 90%;
             }
-        }
+        
 
+           }
         </style>
     </head>    
     <body>
@@ -392,7 +402,7 @@
                 <div class="page active" id="page1">
                     <h1>Projects and such ^v^ </h1>
                     <div class="bio">
-                        <p>Here you can follow through what I"ve made so far in life pretty much.</p>
+                        <p3>Here you can look through what I've done lately.</p3>
                         <span class="bio-text">As you can see I've got quite a few things going on nowadays :p </span>
                     </div>
                     <div class="grid">
@@ -404,10 +414,10 @@
                             </div>
                         </a>
                         <a href="#ComingSoon" class="item">
-                            <img src="data.gif" alt="HOI4 Mod">
+                            <img src="data.gif" alt="TravelMap">
                             <div class="text-container">
-                                <p>🇬🇧 Disgraced Archangels</p>
-                                <p2>Hearts of Iron IV Mod</p2>
+                                <p>🇬🇧 Railways I've been on</p>
+                                <p2>I really love trainsss</p2>
                             </div>
                         </a>
                         <a href="https://modrinth.com/mod/kamilkachanges" class="item">
@@ -427,8 +437,8 @@
                          <a href="#ComingSoon" class="item">
                             <img src="tramverse.gif" alt="A simple game about trams">
                             <div class="text-container">
-                                <p>🇬🇧 TramVerse</p>
-                                <p2>PICO-8 Game</p2>
+                                <p> 🇭🇺 Ózonlyuk pánik, Alföld elsivatagosodása, sajtóban, összehasonlítás</p>
+                                <p2>BA Thesis</p2>
                             </div>
                         </a>
                          <a href="https://kamilluskaw.uk/trams/villamosvonalakprojekt.html" class="item">
@@ -443,11 +453,11 @@
                 <div class="page" id="page2">
                     <h1>About me</h1>
                     <div class="grid">
-                        <a href="https://www.kamilluskaw.uk" class="item">
+                        <a href="https://www.kamilluskaw.uk/rolam.html" class="item">
                             <img src="milkus.jpg" alt="Me!">
                             <div class="text-container">
-                                <p>Hiiiii!</p>
-                                <p2>My name is Kamilla/Milka, I'm a 21yrs old, sociologist who loves to dabble into different things, including web design even!</p2>
+                                <p3>Hiiiii!</p3>
+                                <p2>My name is Milka, I'm a 22 yrs old, sociologist who loves to dabble into different things, including web design even! Currently I study Infomation and Librarian Studies. *click to view alternate website*</p2>
                             </div>
                         </a>
                     </div>
@@ -483,6 +493,13 @@
                             <div class="text-container">
                                 <p>🇬🇧 Kamilla's Predictions</p>
                                 <p2>Prediction by me regarding mostly F1 or elections.</p>
+                            </div>
+                        </a>
+                        <a href="disgraced/devdiary.html" class="item">
+                            <img src="1.gif" alt="Predictions">
+                            <div class="text-container">
+                                <p>🇭🇺 Hogy miért is?</p>
+                                <p2>Válaszok a magyar társadalom jelenlegi akadályaira</p>
                             </div>
                         </a>
                     </div>
@@ -525,11 +542,11 @@
 
             document.onkeydown = (e) => handleKeypress(e.key);
         </script>
-        <button id="change-mode" class="change-mode" >Turn off the lights</button>
+        <button id="change-mode" class="change-mode" >Turn on the lights</button>
 
 		<script type="text/javascript">
     		document.getElementById("change-mode").onclick = function () {
-       		 location.href = "darkmode.html";
+       		 location.href = "lightmode.html";
     			};
 		</script>
     </body>
