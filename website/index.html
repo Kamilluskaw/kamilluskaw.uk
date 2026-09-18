@@ -26,8 +26,8 @@
 
             .main {
                 background: #04001d;
-                width: 1000px;
-                height: 600px;
+                width: 1200px;
+                height: 800px;
                 border-radius: 30px;
                 padding: 20px;
                 text-align: center;
@@ -413,13 +413,6 @@
                                 <p2>Novella</p2>
                             </div>
                         </a>
-                        <a href="#ComingSoon" class="item">
-                            <img src="notyet" alt="TravelMap">
-                            <div class="text-container">
-                                <p>🇬🇧 Railways I've been on</p>
-                                <p2>I really love trainsss</p2>
-                            </div>
-                        </a>
                         <a href="https://modrinth.com/mod/kamilkachanges" class="item">
                             <img src="kamilkachanges.png" alt="Minecraft Mod">
                             <div class="text-container">
@@ -434,23 +427,9 @@
                                 <p2>Wallpaper engine wallpaper</p2>
                             </div>
                         </a>
-                         <a href="#ComingSoon" class="item">
-                            <img src="noimg" alt="A simple game about trams">
-                            <div class="text-container">
-                                <p> 🇭🇺 Ózonlyuk pánik, Alföld elsivatagosodása, sajtóban, összehasonlítás</p>
-                                <p2>BA Thesis</p2>
-                            </div>
-                        </a>
-                         <a href="https://kamilluskaw.uk/trams/villamosvonalakprojekt.html" class="item">
-                            <img src="vili.jpg" alt="University work for one of my classes">
-                            <div class="text-container">
-                                <p>🇭🇺 VillamosVonalak</p>
-                                <p2>University Project</p2>
-                            </div>
-                        </a>
-                    </div>
+
                 </div>
-                <div class="page" id="page2">
+                <div class="page" id="page4">
                     <h1>About me</h1>
                     <div class="grid">
                         <a href="https://www.kamilluskaw.uk/rolam.html" class="item">
@@ -471,7 +450,33 @@
                     </iframe>
                 </div>
                 </div>
-               <div class="page" id="page3">
+               <div class="page" id="page2">
+                    <h1>My blogs</h1>
+                    <div class="grid">
+                         <a href="#ComingSoon" class="item">
+                            <img src="noimg" alt="A simple game about trams">
+                            <div class="text-container">
+                                <p> 🇭🇺 Ózonlyuk pánik, Alföld elsivatagosodása, sajtóban, összehasonlítás</p>
+                                <p2>BA Thesis</p2>
+                            </div>
+                        </a>
+                         <a href="https://kamilluskaw.uk/trams/villamosvonalakprojekt.html" class="item">
+                            <img src="vili.jpg" alt="University work for one of my classes">
+                            <div class="text-container">
+                                <p>🇭🇺 Vidéki VillamosVonalak</p>
+                                <p2>University Project</p2>
+                            </div>
+                       <a href="sometime" class="item">
+                            <img src="vili.jpg" alt="University work for one of my classes">
+                            <div class="text-container">
+                                <p>🇭🇺 Telefonhasználatok elemzése szociálisa interakciók során</p>
+                                <p2>University Project</p2>
+                            </div>
+                        </a>
+                    </div> 
+                    </div>
+                </div>
+                <div class="page" id="page4">
                     <h1>My blogs</h1>
                     <div class="grid">
                         <a href="disgraced/devdiary.html" class="item">
@@ -504,6 +509,7 @@
                         </a>
                     </div>
                 </div>
+                
                 <button class="nav-button prev" onclick="changePage(-1)">a</button>
                 <button class="nav-button next" onclick="changePage(1)">d</button>
             </div>
@@ -516,9 +522,10 @@
                 </div>
             </div>
         </div>
+
         <script>
             let currentPage = 1;
-            const totalPages = 3;
+            const totalPages = 4;
 
             function changePage(direction) {
                 let newPage = currentPage + direction;
